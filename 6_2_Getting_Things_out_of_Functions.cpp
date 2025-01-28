@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-01-29 22:31:56
   @Description: Getting Things Out of Functions
-  @Last Modified time: 2024-03-03 18:35:27
 */
 /*
 - Output parameters should be passed in such a way that they can be modified inside the function. Options are passing by reference or by pointer.

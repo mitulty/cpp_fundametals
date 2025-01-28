@@ -2,12 +2,11 @@
   @Author: Mitul Tyagi
   @Date:   2023-10-21 15:56:40
   @Description: Objects
-  @Last Modified time: 2023-12-07 22:02:32
 */
 /*
 - An object is a contiguous region of storage.
 - An lvalue is an expression that refers to an object. An lvalue is an expression that yields an object reference, such as a variable name, an array subscript
-  reference, a dereferenced pointer, or a function call that returns a reference. An lvalue always has a defined region of storage. An lvalue that has not been 
+  reference, a dereferenced pointer, or a function call that returns a reference. An lvalue always has a defined region of storage. An lvalue that has not been
   declared const is often called a modifiable lvalue.
 - An rvalue is an expression that is not an lvalue. Examples of rvalues include literals, the results of most operators, and function calls that return
   nonreferences. An rvalue does not necessarily have any storage associated with it.
@@ -39,63 +38,63 @@ using namespace std;
 int *ptr{nullptr}; // To store the static value.
 int SetValue(int &value)
 {
-    int j = value;
-    std::cout << j << std::endl;
-    return j;
+  int j = value;
+  std::cout << j << std::endl;
+  return j;
 }
 int SetValueConst(const int &value)
 {
-    int j = value;
-    std::cout << j << std::endl;
-    return j;
+  int j = value;
+  std::cout << j << std::endl;
+  return j;
 }
 int GetValue()
 {
-    return 10;
+  return 10;
 }
 int &GetRefValue()
 {
-    static int val = 10;
-    // int val = 10; Error: This will not work as the variable is lost once the function call gets over.
-    ptr = &val;
-    return val;
+  static int val = 10;
+  // int val = 10; Error: This will not work as the variable is lost once the function call gets over.
+  ptr = &val;
+  return val;
 }
 void printname(std::string &name)
 {
-    std::cout << name << std::endl;
+  std::cout << name << std::endl;
 }
 void printnamerval(const std::string &name)
 {
-    std::cout << name << std::endl;
+  std::cout << name << std::endl;
 }
 void printnamervalref(std::string &&name) // This will be preffered over const version during overloading
 {
-    std::cout << name << std::endl;
+  std::cout << name << std::endl;
 }
 int main(int argc, char const *argv[])
 {
-    int ival = 9;
-    int aval = ival;
-    int xval = GetValue();
-    // GetValue() = 9; // Error
-    GetRefValue() = 4; // Assigning 4 to a reference of an lvalue which gets assigned to the static value.
-    std::cout << "Final Value: " << *ptr << std::endl;
-    SetValue(ival);
-    // SetValue(9); //Error: Initial value of reference to non-const must be an lvalue
-    SetValueConst(9); // This will work
-    SetValueConst(ival);
-    // int& iref =9; // Error: Initial value of reference to non-const must be an lvalue
-    const int &iref = 9; // This will work as it creates a temp lvalue and then assigns it to reference
-    std::string firstName = "Mike";
-    std::string lastname = "Cherry";
-    std::string fullnamme = (firstName + lastname); // This is an rvalue
-    printname(fullnamme);
-    // printname(firstName + lastname); // This is an rvalue.
-    printnamerval(fullnamme);
-    printnamerval(firstName + lastname);
-    printnamervalref(firstName + lastname);
-    // printnamervalref(fullnamme); // Error: An rvalue reference can not be bound to an lvalue
-    return 0;
+  int ival = 9;
+  int aval = ival;
+  int xval = GetValue();
+  // GetValue() = 9; // Error
+  GetRefValue() = 4; // Assigning 4 to a reference of an lvalue which gets assigned to the static value.
+  std::cout << "Final Value: " << *ptr << std::endl;
+  SetValue(ival);
+  // SetValue(9); //Error: Initial value of reference to non-const must be an lvalue
+  SetValueConst(9); // This will work
+  SetValueConst(ival);
+  // int& iref =9; // Error: Initial value of reference to non-const must be an lvalue
+  const int &iref = 9; // This will work as it creates a temp lvalue and then assigns it to reference
+  std::string firstName = "Mike";
+  std::string lastname = "Cherry";
+  std::string fullnamme = (firstName + lastname); // This is an rvalue
+  printname(fullnamme);
+  // printname(firstName + lastname); // This is an rvalue.
+  printnamerval(fullnamme);
+  printnamerval(firstName + lastname);
+  printnamervalref(firstName + lastname);
+  // printnamervalref(fullnamme); // Error: An rvalue reference can not be bound to an lvalue
+  return 0;
 }
 /*
 Final Value: 4

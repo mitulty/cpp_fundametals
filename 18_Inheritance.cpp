@@ -2,7 +2,6 @@
  * @Author: Mitul Tyagi
  * @Date:   2024-04-20 22:00:06
  * @Description: Inheritance
- * @Last Modified time: 2024-04-21 14:16:55
  */
 /*
 - The capability of a class to derive properties and characteristics from another class is called Inheritance. Inheritance is a feature or a process in which,

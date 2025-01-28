@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-04-19 21:34:07
   @Description: Classes & Objects
-  @Last Modified time: 2024-04-21 12:31:21
 */
 /*
 - OOP stands for Object-Oriented Programming. Procedural programming is about writing procedures or functions that perform operations on the data,

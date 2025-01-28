@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-10-16 23:33:31
   @Description: Types in C++
-  @Last Modified time: 2024-02-16 11:34:43
 */
 /*
 - Every name (identifier) in a C++ program has a type associated with it. This type determines what operations can be applied to the name and how such

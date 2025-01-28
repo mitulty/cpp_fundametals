@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-10-18 00:22:53
   @Description: Declaration and Definition
-  @Last Modified time: 2024-02-07 20:25:51
 */
 /*
 - Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of
@@ -133,7 +132,7 @@ vector<string> people{name, "Mike", "Johnson"};                // declaration an
 struct Date
 {
   int d, m, y;
-};                                // declaration and definition
+}; // declaration and definition
 int day(Date *p) { return p->d; } // declaration and definition
 double sqrt_loc(double);          // declaration
 template <class T>

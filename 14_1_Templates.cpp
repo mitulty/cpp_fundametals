@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-11-08 22:52:52
   @Description: Templates and STL
-  @Last Modified time: 2023-11-27 19:06:33
 */
 /*
 - A template is a simple yet very powerful tool in C++. The simple idea is to pass the data type as a parameter so that the same code is not written for different data types.

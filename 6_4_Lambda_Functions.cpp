@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-01-29 22:33:13
   @Description: Lambda Functions
-  @Last Modified time: 2024-03-03 19:35:04
 */
 /*
 - Lambda function is a mechanism to set up anonymous functions (without names). Once setup, they can be named and called or called directly.

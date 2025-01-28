@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-11-04 23:09:26
   @Description: Pointers and References
-  @Last Modified time: 2024-02-17 00:06:56
 */
 /*
 - For a type T, T* is the type "pointer to T". That is, a variable of type T* can hold the address of an object of type T. The fundamental operation

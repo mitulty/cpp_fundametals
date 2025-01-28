@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-11-04 14:49:35
   @Description: Structure, Unions and Enumerations
-  @Last Modified time: 2024-04-20 00:12:03
 */
 /*
 - A structure is a sequence/aggregate of elements(called members) of arbitrary types. A structure creates a data type that can be used to group items of

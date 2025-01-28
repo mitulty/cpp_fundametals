@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-09-30 11:57:20
   @Description: References
-  @Last Modified time: 2024-02-17 00:38:30
 */
 /*
 - A reference is an alias for an object, is usually implemented to hold a machine address of an object, an does not impose performance overhead compared to

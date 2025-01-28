@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-04-20 10:07:42
   @Description: Const Objects
-  @Last Modified time: 2024-04-21 12:32:20
 */
 /*
 - const objects can not be modified and can not be read either i.e. getter methods will not work.const member functions can only be used to access it.

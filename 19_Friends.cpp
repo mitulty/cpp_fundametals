@@ -2,7 +2,6 @@
  * @Author: Mitul Tyagi
  * @Date:   2024-04-21 20:19:12
  * @Description: Friends
- * @Last Modified time: 2024-04-21 20:41:07
  */
 /*
 - Friend means giving access to the class member variables to external entities. External entities can be either functions or classes.

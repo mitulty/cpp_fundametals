@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-12-25 21:03:51
   @Description: Bitwise Operator and Masking
-  @Last Modified time: 2024-01-30 22:35:53
 */
 /*
 - A bit is the smallest unit of data. A computer system only understands binary language which consists of 0s and 1s. These 0s and 1s single-handedly are known

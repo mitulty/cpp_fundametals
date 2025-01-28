@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-10-28 16:18:17
   @Description: Functions
-  @Last Modified time: 2024-03-01 17:25:28
 */
 /*
 - A function is a block of code that performs a specific task. Functions are used to group together related code, and they can be called from other parts of

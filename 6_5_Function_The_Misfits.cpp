@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-01-29 22:33:35
   @Description: Functions: The Misfits
-  @Last Modified time: 2024-04-19 21:35:41
 */
 /*
 - Both global and static variables have static storage duration. They live throughout the entire lifetime of the program.

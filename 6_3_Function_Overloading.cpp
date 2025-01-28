@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-01-29 22:32:35
   @Description: Function Overloading
-  @Last Modified time: 2024-04-19 21:43:53
 */
 /*
 - Function overloading is a mechanism to setup multiple functions of the same name but different parameter list.

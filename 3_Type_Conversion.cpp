@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-10-26 23:58:05
   @Description: Type Conversion
-  @Last Modified time: 2024-02-16 11:36:31
 */
 /*
 - A type cast is basically a conversion from one type to another. There are two kinds of type conversion: Implicit Type Conversion and Explicit Type Conversion.

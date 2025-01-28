@@ -2,12 +2,11 @@
   @Author: Your name
   @Date:   2024-01-28 19:07:46
   @Description: Enumm Classes
-  @Last Modified time: 2024-01-28 21:43:26
 */
 /*
 - Implicit conversions to/from enum classes aren't allowed.
 - Enum classes can't implicitly convert to/from anything, including other enum classes.
-- Legacy enums implicitly transform to int, which is good for std::cout, but that introduces the problem that we can compare different enum types which is 
+- Legacy enums implicitly transform to int, which is good for std::cout, but that introduces the problem that we can compare different enum types which is
   very confusing.
 */
 #include <iostream>

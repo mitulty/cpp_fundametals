@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-10-28 16:18:11
   @Description: Play with variables
-  @Last Modified time: 2023-12-29 22:13:14
 */
 /*
 - A type qualifier is used to refine the declaration of a variable, a function, and parameters, by specifying whether:
@@ -81,7 +80,7 @@ constinit int age = 88;         // This is initialized at compile time
 const constinit int age1{val1}; // const and constinit can be combined
 constinit int age2{age1};       // Initializing with age would lead to a compiler error
                                 // age is not const
-//constinit int age3 {val3}; // Error : val3 is evaluated at run time and can't const initialize age3
+// constinit int age3 {val3}; // Error : val3 is evaluated at run time and can't const initialize age3
 
 const constinit double weight{33.33};
 // constexpr constinit double scale_factor{3.11};// Can't combine constexpr and constinit

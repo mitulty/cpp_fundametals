@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2023-11-03 22:11:43
   @Description: Arrays
-  @Last Modified time: 2024-07-13 12:51:49
 */
 /*
 - An array is a data structure that is used to store multiple values of similar data types in a contiguous memory location. For a type T, T[size] is the type

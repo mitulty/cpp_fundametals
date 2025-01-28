@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-02-05 20:56:49
   @Description: Funtion Templates
-  @Last Modified time: 2024-02-07 12:21:38
 */
 /*
 - Function templates are a mechanism to avoid code repetition in C++. They are just blueprints and not real C++ code. The compiler generates real C++ code

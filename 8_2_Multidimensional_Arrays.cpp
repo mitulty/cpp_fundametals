@@ -2,7 +2,6 @@
   @Author: Mitul Tyagi
   @Date:   2024-01-04 21:25:55
   @Description: Multidimensional Arrays
-  @Last Modified time: 2024-01-04 22:36:20
 */
 
 #include <iostream>
