@@ -37,11 +37,11 @@
                  to objects of unkown type.
 - For most applications we can use bool for logical operations , char for characters , int for integers, and double for floating-point values. The remaining
   fundamental types are variations for optimizations, special needs, and compatibility.
-- limits.h header file is defined to find the range of fundamental data-types. Unsigned modifiers have minimum value is zero. So, no macro constants
+- limits.h header file is defined to find the range of fundamental data-types. Unsigned modifiers have minimum value of zero. So, no macro constants
   are defined for the unsigned minimum value.
 - The ranges can be obtained using min(), max() and lowest() functions for all the primitive data types.
-- Literal is a data that is directly represented code without going through some other variables stored in memory. It is stored directly in the binary of the
-  program/code.
+- Literal is a data that is directly represented in the code without going through some other variables stored in memory. It is stored directly in the binary of
+  the program/code.
 - There are six major categories of literals in C++: integer, character, floating-point, string, boolean, and pointer. A user-defined literal can be
   implemented by defining an operator"" at namespace scope.
 - Boolean literals are "true" and "false". Any non-zero integar is boolean "true" literal and a zero integar is a boolean "false".
@@ -347,7 +347,7 @@ int main(int argc, char const *argv[])
     // String literals
     auto s0 = "hello";   // const char*
     auto s1 = u8"hello"; // const char* before C++20, encoded as UTF-8,
-                         // const char8_t* in C++20
+                         // const char8_t* in C++20 and above
     auto s2 = L"hello";  // const wchar_t*
     auto s3 = u"hello";  // const char16_t*, encoded as UTF-16
     auto s4 = U"hello";  // const char32_t*, encoded as UTF-32
@@ -379,7 +379,7 @@ int main(int argc, char const *argv[])
     // Combining raw string literals with standard s-suffix
     auto S5 = R"("Hello \ world")"s;   // std::string from a raw const char*
     auto S6 = u8R"("Hello \ world")"s; // std::string from a raw const char* before C++20, encoded as UTF-8,
-                                       // std::u8string in C++20
+                                       // std::u8string from a raw const char8_t* in C++20 and above
     auto S7 = LR"("Hello \ world")"s;  // std::wstring from a raw const wchar_t*
     auto S8 = uR"("Hello \ world")"s;  // std::u16string from a raw const char16_t*, encoded as UTF-16
     auto S9 = UR"("Hello \ world")"s;  // std::u32string from a raw const char32_t*, encoded as UTF-32

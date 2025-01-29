@@ -5,8 +5,8 @@
 */
 /*
 - Before a name (identifier) can be used in a C++ program, it must be declared. That is, its type must be specified to inform the compiler what kind of
-  entity the name refers to. Most of the declarations are also definitions. A definition is a declaration that supplies all that is needed in a program for
-  the use of an entity. In particular, if it takes memory to represent something, that memory is set aside by its definition.
+  entity the name refers to. Most of the declarations are also definitions. A definition is a declaration that supplies all that is needed in a program
+  for the use of an entity. In particular, if it takes memory to represent something, that memory is set aside by its definition.
 - There must always be exactly one definition for each name in a C++ Program. However, there can be many declarations. All declarations of an entity must
   agree on its type.
 - Some definitions explicitly specify a value for the entities they define. For types, aliase, templates, functions and constants, the value
@@ -35,7 +35,7 @@
     1. Local Scope: A name declared in a function or lambda is termed as a local name. Its scope extends from its point of declaration to the end of the block
                     in which its declaration occurs. A block is a section of code delimited by a {} pair. Function and lambda parameter names are considered
                     local names in the outermost block of their function and lamda.
-    2. Class Scope: A name is called a member name ( or a class member name) if it is defined in a class outside any function, class, enum class, or other
+    2. Class Scope: A name is called a member name (or a class member name) if it is defined in a class outside any function, class, enum class, or other
                     namespace. Its scope extends from the opening {  of the class declaration to the end of the class declaration.
     3. Namespace Scope: A name is called a namespace member name if it is defined in a namspace outside any function, lambda, class, enum class, or other
                         namespace. Its scope extends from the point of declaration to the end of its namespace. A namespace name may also be accessible from
@@ -122,7 +122,7 @@ using namespace std;
 
 char ch;                                                       // declaration and definition; means "char ch{};" so that ch becomes '0'
 std::string s;                                                 // declaration and definition; means "string s{};" so that s becomes ""
-auto count = 1;                                                // declaration and definition
+auto count = 10;                                               // declaration and definition
 const double pi{3.1415926};                                    // declaration and definition
 double z;                                                      // declaration and definition; means "double z{};" so that z becomes 0.0
 extern int error_number;                                       // declaration
@@ -145,9 +145,9 @@ constexpr int fac(int n)
 {
   return (n < 2) ? 1 : n * fac(n - 1);
 } // declaration and definition
-constexpr double zz{1.56 * fac(7)}; // declaration and definition
-using Cmplx = std::complex<double>; // declaration and definition; type alias
-struct User;                        // declaration
+constexpr double zz{1.56 * fac(7)};   // declaration and definition
+using Complex = std::complex<double>; // declaration and definition; type alias
+struct User;                          // declaration
 enum class Beer
 {
   Carlsberg,
@@ -205,46 +205,54 @@ void f()
 }
 void int_init()
 {
+
+  // C-like initialization
+  int i1;      // undefined value
+  int i2 = 42; // inits with 42
+
   /*
     DO NOT INITIALIZE WITH ()
   */
+  int i3 = (42); // inits with 42
+  int i4(42);    // inits with 42
+  // int i5();     // warning: empty pararanthesis were disambiguated as a function declaration
+  // int i6 = ()    // error
+  int i7 = int();   // inits with 0
+  int i8 = int(42); // inits with 42
 
-  int i1;           // undefined value
-  int i2 = 42;      // inits with 42
-  int i3 = (42);    // inits with 42
-  int i4(42);       // inits with 42
-  int i5 = int();   // inits with 0
-  int i6 = int(42); // inits with 42
-
-  int i7{42};        // inits with 42
-  int i8{};          // inits with 0
   int i9 = {42};     // inits with 42
-  int i10 = {};      // inits with 00
-  int i11 = int{42}; // inits with 42
+  int i10{42};       // inits with 42
+  int i11{};         // inits with 00
+  int i12 = {};      // inits with 00
+  int i13_ = int{};  // inits with 00
+  int i14 = int{42}; // inits with 42
 
-  auto i12 = 42;        // inits with 42
-  auto i13{42};         // c++11: std::initializer_list<int>,c++17:int
-  auto i14 = {42};      // std::initializer_list<int> with 42(should not be used)
-  auto i15 = int{42};   // inits int with 42
-  auto i16(42);         // inits with 42
-  auto i17 = int(42);   // inits with 42
-  auto i18 = int();     // inits with 0
-  auto i19 = {1, 2, 3}; // Its type is standard initializer list. std::initializer_list<int>
+  auto i15 = 42; // inits with 42
 
-  int i20();         // declares a function
-  int i21 = (7, 9);  // init int with 9(comma operator)
-  auto i22 = (7, 9); // init with 9(comma operator)
+  auto i16{42};       // c++11: std::initializer_list<int>,c++17:int
+  auto i17 = {42};    // std::initializer_list<int> with 42(should not be used)
+  auto i18 = int{42}; // inits with 42
+  auto i19 = int{};   // inits with 0
 
-  // int i23(7, 9);          // compile-time error
-  // auto i24(7, 9);         // compile-time error
-  // auto i25 = int(7, 9);   // compile-time error
-  // auto i26;               // compile-time error: cannot deduce 'auto' type (initializer required)
-  // auto i27{};             // compile-tine error
-  // auto i28{23, 4657, 67}; // compile-time error since c++17, was std::initializer_list<int> before c++17. Braced initialization of a variable declared with a
+  auto i20(42);       // inits with 42
+  auto i21 = int(42); // inits with 42
+  auto i22 = int();   // inits with 0
+  auto i23 = (32);    // inits with 32
+
+  auto i24 = {1, 2, 3}; // Its type is standard initializer list: std::initializer_list<int>
+
+  int i25 = (7, 9);  // init with 9(comma operator)
+  auto i26 = (7, 9); // init with 9(comma operator)
+
+  // int i27(7, 9);          // compile-time error
+  // auto i28(7, 9);         // compile-time error
+  // auto i29 = int(7, 9);   // compile-time error
+  // auto i30;               // compile-time error: cannot deduce 'auto' type (initializer required)
+  // auto i31{};             // compile-tine error
+  // auto i32{23, 4657, 67}; // compile-time error since c++17, was std::initializer_list<int> before c++17. Braced initialization of a variable declared with a
   // placeholder type but without `=` requires exactly one element inside the braces
-  // auto i29 = {};          // compile-tine error: can not deduce the type
-  // int i30 = {1, 2, 3};    //To many initializer value
-  // int i31 = int(7, 9);    // excess element in scalar value
+  // auto i32 = {};          // compile-tine error: can not deduce the type
+  // int i33 = {1, 2, 3};    //To many initializer value
 }
 void f3(double val, int val2)
 {
@@ -324,5 +332,5 @@ Local xyz var: 97
 Local abc var: 32767
  In f()
 Local Count: 1
-Global Count: 1
+Global Count: 10
 */
