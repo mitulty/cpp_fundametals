@@ -5,16 +5,14 @@
 */
 /*
 - Function overloading is a mechanism to setup multiple functions of the same name but different parameter list.
-- Function overloading is done with signature of the function and return type of the function is not a part of the signature of the function.
-- For function overloadi- changing the order of the parameters, the number of the parameters and the type of the parameters will result in overloaded functions.
+- Function overloading is done with signature of the function and the return type of the function is not a part of the signature of the function.
+- For function overloadiing, changing the order of the parameters, the number of the parameters and the type of the parameters will result in
+  overloaded functions.
 - Pointers to different types are treated as different types and hence can be overloaded.
 - Followig are equivalent declarations:
                    int max(int * numbers, size_t count);
                    int max(int numbers[], size_t count);
                    int max(int numbers[10], size_t count);
-- Since we are passing -+by value, the parameters inside the functions will be copies of the data we passed as arguments, so changes we do in the body of the
-  function won't affect the variable passed as argument. Whether you pass by const value or not, the outcome is the same so the two functions are effectively
-  the same.
 */
 #include <iostream>
 #include <string>
@@ -26,14 +24,15 @@ int max(int a, int b)
     std::cout << "int overload called" << std::endl;
     return (a > b) ? a : b;
 }
-/*
 // Changing the return type will not overload the functions
+/*
 double max(int a, int b)
 {
     std::cout << "int overload called" << std::endl;
     return (a > b) ? a : b;
-}
+}*/
 // Adding a const will not overload the function. A workaround is to add the const in definitions only.
+/*
 int max(const int a, const int b)
 {
     std::cout << "(int,double) overload called" << std::endl;
@@ -98,8 +97,8 @@ int max(int *numbers, size_t count)
     }
     return maximum;
 }
+// These are same as above
 /*
-//These are same as above
 int max(int numbers[], size_t count)
 {
     std::cout << "ints overload called" << std::endl;
@@ -228,6 +227,8 @@ int main(int argc, char const *argv[])
 
         auto result = max(ints, std::size(ints));
         std::cout << "result : " << result << std::endl;
+        auto result2 = max(doubles, std::size(doubles));
+        std::cout << "result2 : " << result2 << std::endl;
     }
     { // Overloading with Reference Parameters
         std::string name{"Daniel"};
@@ -280,7 +281,7 @@ int main(int argc, char const *argv[])
         std::cout << "max2 : " << max2 << std::endl;
     }
     { // Overloading with default parameters
-      // print_age();
+      // print_age(); Error: Ambiguous call
     }
 
     return 0;

@@ -8,23 +8,23 @@
   pointers. A reference always refers to the object to which it was initialized. The main use of reference is for specifying arguments and return values for
   functions in general and overloaded operators. There are three kinds of references: lvalue, const and rvalue.
 - The lvalue reference is used to refer the object whose value is to be changed. The notation X& means "reference to X". It is used for references to lvalues.
-  It must be initialize. No operator operates on a reference. The value of a reference can not be changed after intialization; it always refers to the object it
-  was initialized to denote. There can not be a pointer to a reference. Also an array of references can not be defined. A reference is not an object.
+  It must be initialized. No operator operates on a reference. The value of a reference can not be changed after intialization; it always refers to the object
+  it was initialized to denote. There can not be a pointer to a reference. Also an array of references can not be defined. A reference is not an object.
 - The obvious implementation of a reference is as a (constant) pointer that is dereferenced each time used.
-- The initializer for a "plain" T& must be an lavalue of type T.
+- The initializer for a "plain" T& must be an lvalue of type T.
 - The initializer for a const T& need not be an lvalue or even of type T. In such cases, first implementation type conversion to T is applied if necessary.
   Then, the resulting value is placed in a temporary variable of type T.  Finally, this temporary variable is used as the value of the initializer. A temporary
   created to hold a reference initializer persists until the end of its reference's scope.
 - A reference can be used to specify a function argument so that the function can change the value of an object passed to it. References can also be used as
   return types. This is mostly used to define functions that can be used on both the left-hand and right-hand sides of an assignment.
-- An rvalue reference refers to a temporary object, which the user of the reference can(and typically) modify, assuming that the object will never be used
+- An rvalue reference refers to a temporary object, which the user of the reference can (and typically) modify, assuming that the object will never be used
   again. An rvalue reference can bind to an rvalue, but not an lvalue. The && declarator operator means "rvalue reference". An object referred to by an rvalue
   reference is accessed exactly like an object referred to by an lvalue reference or an ordinary variable name.
 - A reference to a reference to a type gives a reference to that type which is an lvalue reference.
 - Both a const lvalue reference and an rvalue reference can bind to an rvalue.
 - Pointer and references are two mechanisms for referring to an object from different places in a program without copying. To use a user-defined (overloaded)
   operator on something that refers to an object, use a reference. If there is a need to change the object, use a pointer. If name has to refer to the same
-  object, use a reference. To have a collection of something that refers to an objectm, use pointer. If the notion of "no value" is needed, pointers offer
+  object, use a reference. To have a collection of something that refers to an object, use pointer. If the notion of "no value" is needed, pointers offer
   nullptr. There is no equivalent "null reference".
 - Reference behave like constant pointers.
 - A reference to const can be bounded to a nonconst object, a literal, or a more general expression.
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
 {
   {
     int x = 5, y = 10;
-    int &refVal = x; // Reference Variable(Another name for an object). All operations on a reference are done on the objects to which it is bound.
+    int &refVal = x; // Reference Variable (Another name for an object). All operations on a reference are done on the objects to which it is bound.
                      // Must always be initialized. Can not be bounded to other object. Remains bounded to the initial object.
     std::cout << "x: " << x << " y: " << y << std::endl;
     std::cout << "refval: " << refVal << std::endl;

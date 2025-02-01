@@ -48,12 +48,13 @@
   condition. A plain enum can be implicitly converted to an integer and then to a bool, whereas enum class cannot.
 - The logical operators ( && || ! ) are most commonly used in conditions. A name can only be used within the scope in which it is declared. In particular,
   it can not be used on another branch of an if-statement.
+
 - The switch-statement selects among a set of alternatives (case-labels). The expression in the case labels must be a constant expression of integral or
   enumration type. A value may not be used more than once for case-labels in a switch-statement. It can alternatively be written as a set of if-statements.
   A case of a switch must be terminated somehow unless execution is to be carried of the next case. A break is the most common way of terminating a case,
   but a return is often useful. A default is optional and should be used to handle the most common case.
 - It is possible, and common, to declare variables within the block of a switch-statement. However, it is not possible to bypass an initialization. The switch
-  statment has a single scope and variables can be declared anywhere in the statment but initialization will cause compilation error(except for the lase case).
+  statment has a single scope and variables can be declared anywhere in the statment but initialization will cause compilation error (except for the lase case).
 - It is a good idea to declare a variable in a condition. The scope of the declared variable extends from its point of declaration to the end of the statement
   that the condition controls. A declaration in a condition must declare and initialize a single variable or const.
 - The ternary or conditional operator ( ? : ) is the shortest form of writing conditional statements. It can be used as an inline conditional statement in place
@@ -61,6 +62,7 @@
                                 expression ? statement_1 : statement_2;
 - "if constexpr" construct allows to do conditional excution at compile time rather than during run time. The condition must be a const or constexpr as it
   must be evaluated at compile time. The branch which fails will be dropped and will not be available in the binary.
+
 - A loop can be expressed as a for-, while-, or do-statement. A for-init-statement must be either a declaration or an expression-statement. The statement of
   a for-statement (called the controlled statement or the loop body) is executed repeatedly until the condition becomes false or the program breaks out of the
   loop some other way (such as a break, a return, a thrown or a goto).
@@ -74,13 +76,16 @@
 - If the final value of an index needs to be known after exit from a for-loop, the index variable must be declared outside the for-loop. If no initialization
   is needed, the initializing statement can be empty. If the exression that is supposed to increment the loop variable is omitted, it must be updated
   elsewhere. A for statement is also useful for expressing a loop without an explicit termination condition.
+
 - A while-statement executes its controlled statement until its condition becomes fales. A for-statement is easily rewritten into an equivalent while-statement
   and vice-versa.
+
 - A do-while statement checks the condition after the body.
 - If the condition of an iteration satement is omitted, the loop will not terminate unless the user exlplicitly exits by a break,return, goto, throw or some
   less obvious ways such as call of exit().
 - A "break" breaks out of the nearest (innermost) enclosing switch-statement or iteration statement. A "continue" skips the rest of the body of an
   iteration-statement. After a "continue", the increment part of the loop (if any) is executed, followed by the loop condition (if any).
+
 - The goto statement transfers the control to the labeled statement. The scope of a label is the function it is in. Thus goto can be used to jump both
   into and out of blocks. The only restriction is that it can not jump past an intializer or into an exception handler. One of the usage is to break out
   from a nested loop or switch-statement.
@@ -88,6 +93,7 @@
                                 identifier: statement
 - Multi-line style comments do not nest.
 - Use std::getline(std::cin >> std::ws, str_var_name) to get string input from console.
+- The range-based for loops can have an initializer too like the if and the switch statements.
 */
 #include <iostream>
 #include <iomanip>
@@ -335,13 +341,13 @@ int main(int argc, char const *argv[])
 
         case Marker:
         {
-            std::cout << "Active tool is Marker. strength : " << strength << std::endl;
+            std::cout << "Active tool is Marker. strength : " << strength * 2 << std::endl;
         }
         break;
 
         case Eraser:
         {
-            std::cout << "Active tool is Eraser. strength : " << strength << std::endl;
+            std::cout << "Active tool is Eraser. strength : " << strength * 3 << std::endl;
         }
         break;
         case Rectangle:
@@ -368,7 +374,7 @@ int main(int argc, char const *argv[])
 
         switch (int data{7}; condition)
         {
-            // int x{9}; // Never going to run and thus a compile run.
+            // int x{9}; // Never going to run and thus a compile error.
             int x;
         case 0:
 
@@ -406,6 +412,7 @@ int main(int argc, char const *argv[])
         // for (unsigned int i{};i<5;++i) // iterator;test;update{body}
         for (size_t i{}; i < 5; ++i) // iterator;test;updation{body}
             std::cout << " Simple Loop in C++ when i: " << i << std::endl;
+
         // Only a single test statement. Also, the iterator variables have to be of the same type in the declarator part
         for (int i = 0, j = 10, k = 20; (i < 10, j < 23); j++, k--, i += k)
         {

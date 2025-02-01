@@ -1,11 +1,12 @@
 /*
-  @Author: Your name
+  @Author: Mitul Tyagi
   @Date:   2024-01-28 19:07:46
   @Description: Enumm Classes
 */
 /*
 - Implicit conversions to/from enum classes aren't allowed.
-- Enum classes can't implicitly convert to/from anything, including other enum classes.
+- Enum classes can't implicitly convert to/from anything, including other enum classes. It makes enumerations both strongly typed and strongly scoped.
+- Class enum doesn’t allow implicit conversion to int, and also doesn’t compare enumerators from different enumerations.
 - Legacy enums implicitly transform to int, which is good for std::cout, but that introduces the problem that we can compare different enum types which is
   very confusing.
 */
@@ -112,7 +113,7 @@ int main(int argc, char const *argv[])
 
     std::cout << "direction : " << static_cast<unsigned int>(direction) << std::endl;
     std::cout << "tool : " << tool << std::endl;
-    // std::cout << "(tool > direction) : " << (tool > direction) << std::endl;
+    std::cout << "(tool > direction) : " << (tool > direction) << std::endl; // Warning: comparison between 'enum Tool' and 'enum Direction' [-Wenum-compare]
 
     using HugeInt = unsigned long long int; // Recommended in modern C++
     // typedef unsigned long long int HugeInt; // Older C++ syntax for type aliases

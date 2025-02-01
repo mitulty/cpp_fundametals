@@ -200,7 +200,7 @@ int main(int argc, char const *argv[])
             std::cout << std::endl;
         }
 
-        // Better : Using C-string litterals
+        // Better : Using C-string literals
         // Compared to initialization with charactes with in '', this
         //  is even easier to type. The entire string is a single entity
         // you can manage easily.

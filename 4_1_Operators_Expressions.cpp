@@ -4,12 +4,12 @@
   @Description: Opeartors and Expressions
 */
 /*
-- In C++, an assignment is an expression, a function call is an expression, the construction of an object is an expression. It an order collection of operators
-  and operands which specifies a computation. An expression can contain zero or more operators and one or more operands, operands can be constants or variables.
-  In addition, an expression can contain function calls as well which return constant values.
+- In C++, an assignment is an expression, a function call is an expression, the construction of an object is an expression. It is an order collection of
+  operators and operands which specifies a computation. An expression can contain zero or more operators and one or more operands, operands can be constants
+  or variables. In addition, an expression can contain function calls as well which return constant values.
 - An expression is a combination of operators, constants and variables. An expression may consist of one or more operands, and zero or more operators to
   produce a value.
-- The basic units of an expression are numbers, names, and the opeartors *,/,+,-( both unary and binary ), and = ( assignement ).
+- The basic units of an expression are numbers, names, and the opeartors *,/,+,- (both unary and binary), and = (assignement).
 - An operator is a symbol that operates on a value to perform specific mathematical or logical computations. They form the foundation of any programming
   language. In C++, there built-in operators to provide the required functionality. These can be classified into following types:
         -> Arithmetic Operators: These operators are used to perform arithmetic or mathematical operations on the operands. These can be unary or binary.
@@ -33,8 +33,8 @@
         -> * Operator: This  is an Indirection Operator
         -> << Operator: It is called the insertion operator. It is used with std::cout to print the output.
         -> >> Operator: It is called the extraction operator. It is used with cin to get the input.
-- C++ provides assignment opeartors for the binary opeartors.
-  +, -, *, /, %, &, |, ^, << and >> so that the following assignment operatorts are possible: =, +=, -=, /=, *=, %=, |=, &=, ^=, <<= and >>=.
+- C++ provides assignment opeartors for the binary opeartors +, -, *, /, %, &, |, ^, << and >> so that the following assignment operatorts are possible:
+  =, +=, -=, /=, *=, %=, |=, &=, ^=, <<= and >>=.
 - Precedence is the priority for grouping different types of operators with their operands. Associativity is the left-to-right or right-to-left order for
   grouping operands to operators that have the same precedence. Operator precedence describes how operations are performed in an arithmetic expression. It
   determines how terms are grouped in an expression and how the expression is evaluated.

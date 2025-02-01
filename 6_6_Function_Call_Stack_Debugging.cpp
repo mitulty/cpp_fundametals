@@ -4,8 +4,8 @@
   @Description: Function Call Stack and Debugging
 */
 /*
-- Debugging is the process of running a program through some other program to make it freeze at some point. This gives the ability to then execute it line by
-  line, jumping into functions, and examining the local variables in the current stack activation record.
+- Debugging is the process of running a program through some other program to make it freeze at some point. This gives the ability to then
+  execute it line by line, jumping into functions, and examining the local variables in the current stack activation record.
 */
 #include <iostream>
 

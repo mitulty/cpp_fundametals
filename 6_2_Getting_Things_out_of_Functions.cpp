@@ -86,7 +86,7 @@ int &sum_ref(int &a, int &b)
   return result; // Reference to local variable returned
 }
 
-int &max_input_by_value(int a, int b)
+int &max_input_by_value_copy(int a, int b)
 {
   if (a > b)
   {
@@ -179,7 +179,7 @@ auto &max_reference(int &a, int &b)
   }
 }
 
-// Definition to be available before the call for auto for auto return type deduction
+// Definition to be available before the call for auto return type deduction
 auto max(int &a, int &b)
 {
   if (a > b)
@@ -282,6 +282,7 @@ int main(int argc, char const *argv[])
     double in_double2{76.9};
     max_double(in_double1, in_double2, &out_double);
     std::cout << "max_double : " << out_double << std::endl;
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Returning From Functions By Value
     int x{15};
@@ -295,6 +296,7 @@ int main(int argc, char const *argv[])
     std::string result_str = add_strings(in_str1, in_str2);
     std::cout << "Out : &result_str(std::string) :  " << &result_str << std::endl;
     std::cout << "result_str : " << result_str << std::endl;
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Returning From Functions By Reference
     int x{14};
@@ -314,8 +316,9 @@ int main(int argc, char const *argv[])
     std::cout << "val : " << val << std::endl;         // 14
     std::cout << "x : " << x << std::endl;             // 15
     std::cout << "y : " << y << std::endl;             // 9
-    /*
+
     // Results in Segmentaion Fault as references to local copy are used
+    /*
     int x1{14};
     int y1{9};
     int &result1 = sum_ref(x1, y1); // Reference
@@ -323,10 +326,10 @@ int main(int argc, char const *argv[])
 
     int x2{14};
     int y2{9};
-    int &result2 = max_input_by_value(x2, y2); // Reference
+    int &result2 = max_input_by_value_copy(x2, y2); // Reference
     std::cout << "result : " << result2 << std::endl;
     */
-    std::cout << "Done!" << std::endl;
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Returning From Functions By Pointer
     int x{56};
@@ -344,8 +347,8 @@ int main(int argc, char const *argv[])
     std::cout << "y : " << y << std::endl;
     std::cout << "*p_max : " << *p_max << std::endl;
 
-    /*
     // Results in Segmentaion Fault as pointers to local copy are used
+    /*
     int x1{56};
     int y1{45};
     int *p_sum1 = sum_pointer(&x1, &y1);
@@ -356,13 +359,13 @@ int main(int argc, char const *argv[])
     int *p_sum2 = max_input_by_value(x2, y2);
     std::cout << *p_sum2 << std::endl;
     */
-
-    std::cout << "Done!" << std::endl;
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Returning Array Element Index by Pointer
     double array[]{1.0, 2.0, 3.0, 45.0, 5.0, 6.0, 7.0, 8.0, 79.0, 10.0};
     const double *p_max = find_max_address(array, std::size(array));
     std::cout << "max : " << *p_max << std::endl;
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Bare Auto Type Deduction
     // Type deduction with auto : Just a copy
@@ -374,8 +377,8 @@ int main(int argc, char const *argv[])
     std::cout << "sizeof(x) : " << sizeof(x) << std::endl;
     std::cout << "&some_var : " << &some_variable << std::endl;
     std::cout << "&x : " << &x << std::endl;
-    std::cout << " some_var : " << some_variable << std::endl;
-    std::cout << " x : " << x << std::endl;
+    std::cout << "some_var : " << some_variable << std::endl;
+    std::cout << "x : " << x << std::endl;
 
     double some_var = 55.5; // double
 
@@ -383,7 +386,7 @@ int main(int argc, char const *argv[])
 
     auto y = some_var_ref; // y is not deduced as a reference to double
                            // it's just a double that contains the value
-                           // in some_var_ref.constness does not matter.
+                           // in some_var_ref. constness does not matter.
     ++y;
 
     std::cout << "sizeof(some_var) : " << sizeof(some_var) << std::endl;         // 8
@@ -436,6 +439,7 @@ int main(int argc, char const *argv[])
     auto q = my_ref; // q is a separate variable, initialized with the
                      // value in i_am_const.
     ++q;             // Can modify q without a problem. It's a copy.
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Function Return Type Deduction
     auto result = process_number(17);
@@ -444,11 +448,12 @@ int main(int argc, char const *argv[])
     std::cout << "sizeof(int) : " << sizeof(int) << std::endl;
     std::cout << "sizeof(double) : " << sizeof(double) << std::endl;
 
-    result = process_number_2(17);
-    std::cout << "result : " << result << std::endl;
-    std::cout << "sizeof(result)  : " << sizeof(result) << std::endl;
+    auto results = process_number_2(7);
+    std::cout << "results : " << results << std::endl;
+    std::cout << "sizeof(results)  : " << sizeof(results) << std::endl;
     std::cout << "sizeof(int) : " << sizeof(int) << std::endl;
     std::cout << "sizeof(double) : " << sizeof(double) << std::endl;
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Return Type Deduction with References
     int x{10};
@@ -476,12 +481,15 @@ int main(int argc, char const *argv[])
     std::cout << "x :" << x << std::endl;                        // 10
     std::cout << "y :" << y << std::endl;                        // 46
     std::cout << "result_ref_2 : " << result_ref_2 << std::endl; // 46
+    std::cout << "----------Done!------------------" << std::endl;
   }
 
   { // Function Defintions with Return Type Deduction
     int x{5};
     int y{9};
     int int_val = max(x, y);
+    std::cout << "int_val :" << int_val << std::endl;
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Optional Output from Functions
     std::string str1{"Hello World in C++20!"};
@@ -510,6 +518,7 @@ int main(int argc, char const *argv[])
     {
       std::cout << "Didn't find our character" << std::endl;
     }
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // std::optional
     std::optional<int> items{3};
@@ -584,6 +593,7 @@ int main(int argc, char const *argv[])
     {
       std::cout << "dog_name contains std::nullopt" << std::endl;
     }
+    std::cout << "----------Done!------------------" << std::endl;
   }
   { // Optional Output with std::optional
     std::string str1{"Hello World in C++20!"};
@@ -612,6 +622,7 @@ int main(int argc, char const *argv[])
     {
       std::cout << "Could not find character 'o' in the string : " << str1 << std::endl;
     }
+    std::cout << "----------Done!------------------" << std::endl;
   }
   return 0;
 }

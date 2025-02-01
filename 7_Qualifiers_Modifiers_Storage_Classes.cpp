@@ -8,7 +8,7 @@
         -> The value of an object can be changed
         -> The value of an object must always be read from memory rather than from a register
         -> More than one pointer can access a modifiable memory address
-- The const type qualifier declares an object to be nonmodifiable. The volatile type qualifier declares an item whose value can legitimately be changed by
+- The const type qualifier declares an object to be non-modifiable. The volatile type qualifier declares an item whose value can legitimately be changed by
   something beyond the control of the program in which it appears, such as a concurrently executing thread.
 - const: Type specifier “const” is to define the objects of type const. A const object or variable cannot be modified once declared. If an attempt is made to
   modify const object or variable, then the compiler raises an error. It must always be initialized when it defined. They are local to a file by default. To
@@ -65,8 +65,8 @@
 - constinit is in place in part to help in avoiding problems with the order of intialization of global variables outside the main function.
 - constinit variables must be initialized with constants or literals. const and constinit can be combined, but const and constexpr can not be combined in an
   expression. constinit desn't imply that the variable is const. It just implies that the compiler enforces intialization at compile time.
-- Only one of constinit, constexpr and consteval can appear in a declaration.
-
+- Only one of constinit, constexpr and consteval can appear in a declaration. constinit can be used with static and thread_local variables. It can't be used
+  with local variables.
 */
 
 #include <iostream>
@@ -87,10 +87,10 @@ const constinit double weight{33.33};
 
 extern int temp;
 const int buffersize = 256;           /* initialized at compile, It is a constant expression */
-extern const int bufferlength = 1024; /* initialized at compile and will be available to other files, It is a constant expression */
+extern const int bufferlength = 1024; /* initialized at compile and will be available to other files. It is a constant expression */
 constexpr int mf = 20;                /* constant expression */
 constexpr int limit = mf + 1;         /* constant expression */
-// constexpr int sz = gen_size();        /* ok only if size is a constexpr function */
+// constexpr int sz = gen_size();        /* ok only if gen_size is a constexpr function */
 // constexpr int abc = temp;          /* error: the value of ‘temp’ is not usable in a constant expression */
 void printvar()
 {
@@ -107,14 +107,14 @@ int get_size()
 int main(int argc, char const *argv[])
 {
   int z = 10;
-  int *volatile x0;            /* x is a volatile pointer to an int */
-  int *const y0 = &z;          /* y is a const pointer to the int variable z */
-  volatile int *x1;            /* x is a pointer to a volatile int  */
-  int volatile *x2;            /* x is a pointer to a volatile int  */
-  const int *y1;               /* y is a pointer to a const int  */
-  int const *y2;               /* y is a pointer to a const int  */
-  const int size = get_size(); /* intialized at run-time, It is not a constant expression */
-  const int a = z;             /* intialized at compile-time, It is a constant expression */
+  int *volatile x0;            /* x0 is a volatile pointer to an int */
+  int *const y0 = &z;          /* y0 is a const pointer to the int variable z */
+  volatile int *x1;            /* x1 is a pointer to a volatile int  */
+  int volatile *x2;            /* x2 is a pointer to a volatile int  */
+  const int *y1;               /* y1 is a pointer to a const int  */
+  int const *y2;               /* y2 is a pointer to a const int  */
+  const int size = get_size(); /* intialized at run-time. It is not a constant expression */
+  const int a = z;             /* intialized at compile-time. It is a constant expression */
   {
     int i;
     float f;
@@ -144,7 +144,7 @@ int main(int argc, char const *argv[])
     std::cout << "age1 : " << age1 << std::endl;
     std::cout << "age2 : " << age2 << std::endl;
 
-    age = 33; // Can change a const init variable
+    age = 33; // Can change a constinit variable
     std::cout << "age : " << age << std::endl;
 
     // Combining const and constinit

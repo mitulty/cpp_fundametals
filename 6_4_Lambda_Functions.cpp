@@ -5,8 +5,8 @@
 */
 /*
 - Lambda function is a mechanism to set up anonymous functions (without names). Once setup, they can be named and called or called directly.
-- Moving the declaration of the lambda out of the main function and in front won't cause a compilation failure. It can be considered a global variable and
-  in can be used anywhere in the file containing the main function.
+- Moving the declaration of the lambda out of the main function and in front won't cause a compilation failure. It can be considered a global
+  variable and in can be used anywhere in the file containing the main function.
 - Values captured by value can't be modified in the body of the lambda function by default.
 */
 #include <iostream>

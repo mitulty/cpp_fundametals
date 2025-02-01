@@ -92,7 +92,7 @@ int main(int argc, char const *argv[])
   // char v3[3] = {'a', 'b', 'c', 0}; // error: too many initializers
   char v4[6] = {'a', 'b', 'c', 0}; // ok
   char *str = "this is a string";  // warning: ISO C++ forbids converting a string constant to 'char*'
-  // str[5] = 'e';// error: segmentation fault as str is a const
+  // str[5] = 'e';// error: segmentation fault as str is a const. str is an immutable string. Better to use const char* str = "this is a string";
   std::cout << "String Literal: " << str << std::endl;
   char p[] = "Zeno"; // p is an array of 5 char
   p[0] = 'R';        // ok
@@ -102,7 +102,8 @@ int main(int argc, char const *argv[])
   const char *messp = "AON";
   const char *messq = "AON";
   (messp == messq) ? std::cout << "Equal" << std::endl : std::cout << "Unequal" << std::endl; // Implementation Defined.
-
+  printf("Address of AON in messp %p\n", messp);
+  printf("Address of AON in messq %p\n", messq);
   std::cout << "Beep at the end of message\a\n"
             << std::endl;
   char alpha[] = "asfdhdasfshgfsdfshngdh"
@@ -219,13 +220,13 @@ int main(int argc, char const *argv[])
     // size of an array
     int scores[]{1, 2, 5};
 
-    int count{std::size(scores)}; // std::size (C++17)
+    int count{std::size(scores)}; // std::size (C++17) and above
+    int count_elements{sizeof(scores) / sizeof(scores[0])};
 
     std::cout << "sizeof(scores) : " << sizeof(scores) << std::endl;
     std::cout << "sizeof(scores[0]) : " << sizeof(scores[0]) << std::endl;
     std::cout << "count : " << count << std::endl;
-
-    int count_elements{sizeof(scores) / sizeof(scores[0])};
+    std::cout << "count_elements : " << count_elements << std::endl;
 
     for (size_t i{0}; i < count_elements; ++i)
     {

@@ -16,7 +16,7 @@
 - The following are the parts of the function:
     -> The name of the function.
     -> The argument list, which may be empty
-    -> The return type, which may be void and which may be prefix or suffic (using auto)
+    -> The return type, which may be void and which may be prefix or suffix (using auto)
     -> inline, indicating a desire to have function calls implemented by inlining the function body.
     -> constexpr, indicating that it should be possible to evaluate the function at compile time if given a constant expression as arguments.
     -> noexcept, indicating that the function may not throw an exception.
@@ -58,7 +58,7 @@
   defintion, it means "should be usable in a constant expression when given constant expression as arguments." When used in an object defintion, it means
   "evaluate the initializer at compile time."
 - A constexpr function must consist of a single return-statement; no loops and no local variables are allowed. Also, a constexpr function may not have side
-  effects. It is a pure function. It allows recursion and conditional expressions.  The defintion of a constexpr  function in different translation units must
+  effects. It is a pure function. It allows recursion and conditional expressions. The defintion of a constexpr function in different translation units must
   be identical.
 - A constexpr function can not have side effects, so writing to nonlocal objects is not possible. However, a constexpr function can refer to nonlocal objects
   as long as it does not write to them. A constexpr function can take reference arguments but it can not write through such references, but const reference
@@ -92,12 +92,12 @@
     -> Use pass-by-value for small objects.
     -> Use pass-by-const-reference to pass large values that will not be modified
     -> Return a result as a return value rather than modifying an object through an argument.
-    -> Use rvalue reference to implement "move" and "forwarding"
-    -> Pass by a pointer if "no object" is a valid alternative/
+    -> Use rvalue reference to implement "move" and "forwarding".
+    -> Pass by a pointer if "no object" is a valid alternative.
     -> Use pass-by-reference only if required.
 - If an array is used as a function argument, pointer to its initial element is passed. An argument of type T[] will be converted to a T* when passed as an
   argument. This implies that an assignment to an element of an array argument changes the value of an element of the argument array. Array is not passed by
-  value. Instead, a pointer is passed (by value). A parameter of arraay type is equivalent to a parameter of pointer type. The size of an array is not
+  value. Instead, a pointer is passed (by value). A parameter of array type is equivalent to a parameter of pointer type. The size of an array is not
   available to the called function but can be passed as a second argument. It is usually preferable to pass a reference to some container, such as vector,
   array, or map.
 - To pass an array, rather than a container or a pointer to the first element of an array, a parameter of type reference to array can be declared. The number
@@ -116,7 +116,6 @@
 - A default argument is type checked at the time of the function declaration and evaluated at the time of the call. It may be provided for trailing arguments
   only. It can not be repeated or changed in a subsequent declaration in the same scope. Declaring a name in a nested scope so that the name hides a
   declaration of the same name in an outer scope is error-prone.
-
 */
 
 #include <iostream>

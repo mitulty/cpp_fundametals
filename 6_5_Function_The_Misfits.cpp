@@ -6,9 +6,10 @@
 /*
 - Both global and static variables have static storage duration. They live throughout the entire lifetime of the program.
 - Static variables are scoped to the function in which they are declared and used.
-- Global variables are scoped to the global scope of the file where they are declared. They are accessible and usable through out the entire file.
-- Inlining is just a suggestion to the compiler. The compiler could agree and expand the function calls in place, but it could also completely ignores inlining
-  and just initiate regular function calls.
+- Global variables are scoped to the global scope of the file where they are declared. They are accessible and usable through out the entire
+  file.
+- Inlining is just a suggestion to the compiler. The compiler could agree and expand the function calls in place, but it could also completely
+  ignores inlining and just initiate regular function calls.
 - Inline functions can increase the size of the application binary
 - It is recommended to use inline functions for short, frequently used functions.
 */

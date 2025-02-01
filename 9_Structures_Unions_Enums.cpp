@@ -16,6 +16,7 @@
                                                 .
                                                 memberN;
                                             };
+  The name of the structure is structureName. The members are member1, member2, member3, …, memberN. The members can be of any data type. The name is optional.
 - Structures in C++ can contain two types of members:
             -> Data Member: These members are normal C++ variables.
             -> Member Functions: These members are normal C++ functions. Along with variables, functions acn be included inside a structure declaration.
@@ -41,9 +42,9 @@
   architecture-dependent boundaries or handle such objects much more efficiently if they are. On such machines, objects are said to have to be properly aligned.
   This leads to "holes" in the structures. Ordering members by size can minimize the wastage.
 - The name of a type becomes available for use immediately after it has been encountered and not just after the complete declaration has been seen. However, it
-  is not possible to declare new objects of a struct until its complete declarataion has been seen.A struct declaration can be used. The name of a struct can
-  be used before the type is defined as long as that use does not require the name of a member or the size of the structure to be known. However, until the
-  completion of the declaration of a struct, that struct is an incomplete type.
+  is not possible to declare new objects of a struct until its complete declarataion has been seen. The name of a struct can be used before the type is defined
+  as long as that use does not require the name of a member or the size of the structure to be known. However, until the completion of the declaration of a
+  struct, that struct is an incomplete type.
 - It is possible to declare a struct and a non-struct with the same name in the same scope. In such cases, the plane name is the name of non-stuct and the
   struct must be referred to with the prefix struct. Similarly, the keywords class, union, and enum can be used as prefixes for disambiguation.
 - A structure can have an array as an element and there can be an array of structures. Placing a built-in array in a struct allows to treat that array as an
@@ -52,7 +53,7 @@
 - It is possible to bundle several tiny variables together as fields in a struct. A field is often called a bit-field. A member is defined to be a field by
   specifying the number of bits it is to occupy. Unnamed fields are allowd. They do not affect the meaning of the named fields, but they can be used to make
   the layout better in some machine-dependent way.
-- A union is a strct in which all the members are allocated at the same address so that the union occupies only as much space as its largest member. Naturally,
+- A union is a struct in which all the members are allocated at the same address so that the union occupies only as much space as its largest member. Naturally,
   a union can hold a value for only one member at a time. The language does not keep track of which kind of value is held by a union, so the programmer must do
   that.
 - Enumeration (Enumerated type) is a user-defined data type that can be assigned some limited values. These values are defined by the programmer at the time of

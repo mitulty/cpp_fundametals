@@ -3,10 +3,7 @@
   @Date:   2024-01-07 11:23:27
   @Description: std::string in C++
 */
-/*
 
-
-*/
 #include <iostream>
 #include <string>
 #include <cstring>

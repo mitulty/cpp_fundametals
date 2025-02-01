@@ -256,7 +256,7 @@ int main(int argc, char const *argv[])
     // You'll get a compiler error :Invalid convertion from 'const type*' to 'type*'.
     const int some_data{55};
     // int * p_some_data {&some_data}; // Compiler error.
-    //*p_some_data = 66;
+    // *p_some_data = 66;
 
     // Both pointer and pointed to value are constant
     const int number5{459};
@@ -307,7 +307,7 @@ int main(int argc, char const *argv[])
 
     int scores[10]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
-    // scores++;
+    // scores++; // Error
 
     int *p_score{scores};
 
