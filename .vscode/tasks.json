@@ -3,29 +3,8 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: g++-11 build active file",
-			"command": "/usr/bin/g++-11",
-			"args": [
-				"-fdiagnostics-color=always",
-				"-g",
-				"-std=c++20",
-				"${file}",
-				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}.out"
-			],
-			"options": {
-				"cwd": "${fileDirname}"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": "build",
-			"detail": "compiler: /usr/bin/g++-11"
-		},
-		{
-			"type": "cppbuild",
-			"label": "C/C++: g++-13 build active file",
-			"command": "/usr/bin/g++-13",
+			"label": "C/C++: g++ build active file",
+			"command": "/usr/bin/g++",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
@@ -41,12 +20,12 @@
 				"$gcc"
 			],
 			"group": "build",
-			"detail": "compiler: /usr/bin/g++-11"
+			"detail": "compiler: /usr/bin/g++"
 		},
 		{
 			"type": "cppbuild",
-			"label": "C/C++: clang++-12 build active file",
-			"command": "/usr/bin/clang++-12",
+			"label": "C/C++: clang++-18 build active file",
+			"command": "/usr/bin/clang++-18",
 			"args": [
 				"-fcolor-diagnostics",
 				"-fansi-escape-codes",
@@ -63,7 +42,7 @@
 				"$gcc"
 			],
 			"group": "build",
-			"detail": "compiler: /usr/bin/clang++-12"
+			"detail": "compiler: /usr/bin/clang++-18"
 		}
 	]
 }
