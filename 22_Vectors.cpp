@@ -26,6 +26,7 @@ iterator.
 using namespace std;
 
 int main(int argc, char const *argv[]) {
+
     // Initializing a vector
     vector<int> v;
     vector<pair<int, int>> vec;
@@ -50,10 +51,10 @@ int main(int argc, char const *argv[]) {
     // Accessing an element of a vector using index
     cout << "-> Element at index 3: " << vec_copy[3] << endl;
     cout << "-> Element at index 2: " << vec_copy.at(2) << endl;
-    // The at() function is preferred zover [] because at() throws an exception
+    // The at() function is preferred over [] because at() throws an exception
     // whenever the vector is out of bound, while [] gives a garbage value.
 
-    // Accessing first and last element of a vector
+    // Accessing the first and the last element of a vector
     cout << "-> Last element: " << vec_copy.back() << endl;
     cout << "-> First element: " << vec_copy.front() << endl;
 
@@ -68,6 +69,7 @@ int main(int argc, char const *argv[]) {
         cout << endl;
 
         cout << "-> Resizing to a lower size: ";
+
         // Vector resized to 3
         v.resize(3);
 
@@ -81,6 +83,7 @@ int main(int argc, char const *argv[]) {
         for (auto i : v)
             cout << i << " ";
         cout << endl;
+
         // Vector resized to 7 and added elements initialized to 9
         cout << "-> Resizing to a higher size and inserting new elements: ";
         v.resize(7, 9);
@@ -107,17 +110,18 @@ int main(int argc, char const *argv[]) {
 
         cout << "-> New Capacity: " << v.capacity() << endl;
     }
+
     cout << "-> Iterating over a vector of pairs: ";
     for (auto i : vec)
-        cout << i.first << " " << i.second << ", ";
+        cout << " " << i.first << " " << i.second << ", ";
     cout << endl;
 
     for (int i = 0; i < 2; i++)
-        cout << vec[i].first << " " << vec[i].second << ", ";
+        cout << " " << vec[i].first << " " << vec[i].second << ", ";
     cout << endl;
 
     for (int i = 0; i < 2; i++)
-        cout << vec.at(i).first << " " << vec.at(i).second << ", ";
+        cout << " " << vec.at(i).first << " " << vec.at(i).second << ", ";
     cout << endl;
 
     // Iterating over a vector
@@ -136,11 +140,11 @@ int main(int argc, char const *argv[]) {
     cout << "-> Iterating using iterator in a loop: \n";
     for (vector<int>::iterator it = vector_iter.begin();
          it != vector_iter.end(); it++)
-        cout << *(it) << " ";
+        cout << " " << *(it) << " ";
     cout << endl;
 
     for (auto it = vector_iter.begin(); it != vector_iter.end(); it++)
-        cout << *(it) << " ";
+        cout << " " << *(it) << " ";
     cout << endl;
 
     cout << "-> Iterating using values in a loop: ";
@@ -163,12 +167,8 @@ int main(int argc, char const *argv[]) {
     cout << endl;
 
     // Inserting elements in a vector
-    cout << "-> Inserting element at front: " << endl;
+    cout << "-> Inserting element at front: ";
     vector_iter.insert(vector_iter.begin(), 10324);
-    for (auto it : vector_iter)
-        cout << it << " ";
-    cout << endl;
-
     vector_iter.emplace(vector_iter.begin(), 46768);
     for (auto it : vector_iter)
         cout << it << " ";
@@ -187,8 +187,8 @@ int main(int argc, char const *argv[]) {
         cout << it << " ";
     cout << endl;
 
-    // Deleting last element of a vector
-    cout << "-> Removing last element: ";
+    // Deleting the last element of a vector
+    cout << "-> Removing the last element: ";
     vector_iter.pop_back();
     for (auto it : vector_iter)
         cout << it << " ";
@@ -198,11 +198,11 @@ int main(int argc, char const *argv[]) {
     cout << "-> Swapping two vectors of same type: " << endl;
     v.swap(vector_iter);
     for (auto it : vector_iter)
-        cout << it << " ";
+        cout << " " << it << " ";
     cout << endl;
 
     for (auto it : v)
-        cout << it << " ";
+        cout << " " << it << " ";
     cout << endl;
 
     // Reverse the vector
@@ -234,16 +234,16 @@ int main(int argc, char const *argv[]) {
     cout << "-> Accessing using a pointer to the first element of a vector: "
          << *vector_iter.data() << endl;
 
-    // v.push_back(32);
-    // v.push_back(32);
+    v.push_back(32);
+    v.push_back(32);
 
     // remove duplicates
-    // cout << "-> Remove duplicates from a vector: ";
-    // unique(v.begin(), v.end());
+    cout << "-> Remove duplicates from a vector: ";
+    auto val = unique(v.begin(), v.end());
 
-    // for (auto i : v)
-    //   cout << i << " ";
-    // cout << endl;
+    for (auto i : v)
+        cout << i << " ";
+    cout << endl;
 
     // Clearing a vector
     cout << "-> Clearing a vector";
